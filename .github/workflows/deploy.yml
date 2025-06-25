@@ -1,4 +1,3 @@
-
 name: Deploy MTProto Proxy
 
 on:
@@ -18,3 +17,6 @@ jobs:
             -e SECRET=fa3e52a19c6b4f2c94db35a12f899c3e \
             -e TAG=dd5b9e98e5b0c876dcebb3f5a47cf5ad \
             telegrammessenger/proxy
+
+      - name: Show public IP
+        run: curl ifconfig.me
