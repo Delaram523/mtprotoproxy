@@ -13,7 +13,7 @@ jobs:
         sudo apt install -y docker.io
     - name: Run MTProto Proxy
       run: |
-        docker run -d --name mtproxy \
+        docker run -d --name mtproto_proxy \
           -p 443:443 \
           -e SECRET=fa3e52a19c6b4f2c94db35a12f899c3e \
           -e TAG=dd5b9e98e5b0c876dcebb3f5a47cf5ad \
