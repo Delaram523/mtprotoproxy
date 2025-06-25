@@ -1,0 +1,22 @@
+name: Deploy MTProto Proxy on port 8443
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run MTProto Proxy on port 8443
+        run: |
+          docker run -d --name mtproto_proxy_8443 \
+            -p 8443:443 \
+            -e SECRET=fa3e52a19c6b4f2c94db35a12f899c3e \
+            -e TAG=dd5b9e98e5b0c876dcebb3f5a47cf5ad \
+            telegrammessenger/proxy
+
+      - name: Show public IP
+        run: curl ifconfig.me
