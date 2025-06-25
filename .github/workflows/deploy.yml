@@ -1,0 +1,20 @@
+name: Deploy MTProto Proxy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Docker
+      run: |
+        sudo apt update
+        sudo apt install -y docker.io
+    - name: Run MTProto Proxy
+      run: |
+        docker run -d --name mtproto_proxy \
+          -p 443:443 \
+          -e SECRET=00000000000000000000000000000000 \
+          -e TAG=dd000000000000000000000000000000 \
+          telegrammessenger/proxy
