@@ -15,6 +15,6 @@ jobs:
       run: |
         docker run -d --name mtproto_proxy \
           -p 443:443 \
-          -e SECRET=00000000000000000000000000000000 \
-          -e TAG=dd000000000000000000000000000000 \
+          -e SECRET=0123456789abcdef0123456789abcdef \
+          -e TAG=dd5b9e98e5b0c876dcebb3f5a47cf5ad \
           telegrammessenger/proxy
